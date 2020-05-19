@@ -1,5 +1,5 @@
 class Appointment < ApplicationRecord
-  belongs_to :Owner
-  belongs_to :Invite
-  belongs_to :Category
+  has_many :invites
+  has_many :owners, through: :invites
+  belongs_to :category
 end

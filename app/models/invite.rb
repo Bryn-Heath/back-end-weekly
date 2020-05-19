@@ -1,4 +1,5 @@
 class Invite < ApplicationRecord
-    has_many :Owners, through: :appointments
-    has_many :appointments
+    belongs_to :owner
+    belongs_to :appointment
+    # belongs_to :category
 end

@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_225358) do
+ActiveRecord::Schema.define(version: 2020_05_19_105057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.bigint "owner_id", null: false
     t.string "location"
     t.string "title"
     t.string "note"
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "start_date"
+    t.string "end_date"
     t.index ["category_id"], name: "index_appointments_on_category_id"
-    t.index ["owner_id"], name: "index_appointments_on_owner_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2020_05_13_225358) do
   end
 
   add_foreign_key "appointments", "categories"
-  add_foreign_key "appointments", "owners"
   add_foreign_key "invites", "appointments"
   add_foreign_key "invites", "owners"
 end
