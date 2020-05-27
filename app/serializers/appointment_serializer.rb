@@ -1,4 +1,4 @@
 class AppointmentSerializer < ActiveModel::Serializer
-    attributes :title, :start_date, :end_date, :owner_ids, :note, :location, :category_id
+    attributes :title, :startDate, :endDate, :owner_ids, :note, :location, :category_id, :id
 end
   
