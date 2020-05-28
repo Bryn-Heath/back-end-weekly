@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
     appointment = Appointment.new(appointment_params)
     if appointment.save
       Invite.create(appointment: appointment, owner_id: params[:owner_id])
-      render json: {data:["Appointment created sucessfully"]}
+      render json: appointment
     else
       render json: {data:appointment.errors}, status: :unprocessable_entity
     end
